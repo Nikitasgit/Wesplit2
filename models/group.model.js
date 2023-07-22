@@ -6,11 +6,14 @@ const groupSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    creator: {
+    author: {
       type: String,
       required: true,
     },
-    users: { type: [Object], required: false },
+    users: {
+      type: [Object],
+      required: true,
+    },
   },
   {
     timestamps: true,

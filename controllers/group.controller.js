@@ -6,13 +6,14 @@ module.exports.getGroups = async (req, res) => {
 };
 
 module.exports.setGroups = async (req, res) => {
-  if (!req.body.name && !req.body.creator) {
+  if (!req.body.name && !req.body.author) {
     res.status(400).json({ message: "Merci d'ajouter un nom et un créateur" });
   }
 
   const group = await GroupModel.create({
     name: req.body.name,
-    creator: req.body.creator,
+    author: req.body.author,
+    users: req.body.users,
   });
   res.status(200).json(group);
 };
